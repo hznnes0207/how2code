@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <title>DIV einfügen-how2codeyourwebsite</title>
+    <style>
+        Body {
+            background-color: lightgrey;
+            font-family: 'Comfortaa', sans-serif;
+        }
+        header {
+            font-size: 50px;
+            text-align: center;
+            font-family: 'Comfortaa', sans-serif;
+            color: black;
+            margin-bottom: 130px; 
+            margin-top: 130px; 
+            margin-left: 400px; 
+            margin-right: 400px; 
+            border: none;
+            border-radius: 10px;
+            background-color: white;
+            
+        }
+
+        .überschrift {
+            font-size: 40px;
+            color:darkgreen;
+            font-family: "Caveat", cursive;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: space-around; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+           
+        }
+
+        .box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: calc(33.33% - 20px); 
+            box-sizing: border-box; 
+            position: relative; 
+            
+        }
+
+        .box:nth-child(3n+1) {
+            margin-left: 0;
+        }
+
+        .box:nth-child(3n+2) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .box:nth-child(3n+3) {
+            margin-right: 0;
+        }
+        
+        .button-container {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .button-container button {
+            background-color: #1E1E1E;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .text {
+            text-align: center;
+        }
+
+        .text p {
+            font-size: 16px;
+        }
+
+        .code {
+            background-color: #1E1E1E;
+            color: white;
+            overflow: auto;
+            
+            
+        }
+
+        .image {
+            text-align: center;
+            
+            
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            
+            
+        }
+
+        .image:hover {
+            transform: scale(1.05);
+            
+        }
+        pre {
+            white-space: pre-wrap;
+        }
+
+        .code:hover {
+            transform: scale(1.05);
+        }
+
+        .text:hover {
+            transform: scale(1.05);
+        }
+
+        .link-container {
+        background-color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: inline-block; 
+        }
+
+        .link-container a {
+        text-decoration: none; 
+        color: black; 
+        }
+        .link-container:hover {
+            transform: scale(1.05);
+        }
+
+        
+        .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0); 
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        z-index: 1000;
+         }
+
+        .link-container {
+        background-color: transparent; 
+        padding: 10px 0; 
+        }
+
+        .link-container a {
+        display: block;
+        padding: 10px 20px; 
+        text-decoration: none;
+        color: black;
+        transition: background-color 0.3s ease;
+        border-radius: 10px;
+        }
+
+        .link-container a:hover {
+         background-color: white; 
+         border-radius: 10px;
+        }
+
+
+        
+        .push-content {
+            transition: margin-left 0.5s;
+            padding: 16px;
+        }
+
+        
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        
+        .closebtn:hover {
+            color: #ccc;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 999;
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<header>
+<p>Der "DIV"-Befehl</p>
+<p class="überschrift">Anleitung zum Coden einer eigenen Website!</p>
+</header>
+
+<body onmousemove="openNav(event)" onmouseout="closeNav()"></body>>
+      <div id="mySidebar" class="sidebar">
+        <div class="link-container">
+            <a href="index.html">Home</a>
+            <a href="#" onclick="toggleCommands()"><p>Befehle</p> HTML/CSS</a>
+            <div id="subCommands" style="display: none;">
+                <a href="Grundlage.Befehl.html">Grundlage</a>
+                <a href="Text.Befehle.html">Text einfügen</a>
+                <a href="Bilder.Befehl.Html">Bilder einfügen</a>
+                <a href="DIV.Befehl.html">"DIV"-Befehl</a>
+                <a href="Link.Befehl.html">Link einfügen</a>
+            </div>
+            <a href="Services.html">Mini-Quiz</a>
+            <a href="Impressum.html">Impressum</a>
+        </div>
+    </div>
+
+<div class="container">
+    <div class="box Unterüberschrift">
+        <p>Beschreibung</p>
+    </div>
+    <div class="box Unterschrift">
+        <p>Der passende Code</p>
+    </div>
+    <div class="box Unterüberschrift">
+        <p>Beispiel-Website</p>
+    </div>
+
+    <div class="box text">
+        <p>Der Text, der bis jetzt auf der Website ist, reicht uns nicht mehr. Wir wollen mehr Text.</p>
+        <p>Der Text soll aber nur in einem bestimmten Bereich auf der Website dargestellt werden. Dies ist mit dem klassischem <strong><u>&lt;p&gt;</u></strong> nicht mehr möglich. Man brauch eine Erweiterung. Wir benutzen dazu den <strong><u>"Div-Befehl"</u></strong>.</p>
+        <p><li>Ein "Div-Element" strukturiert und gruppiert Elemente auf einer HTML-Seite.</li></p>
+        <p><li>In unserem Fall sind wir noch im Abschnitt "Section" und beginnen mit <strong><u>&lt;div&gt;</u></strong>, dann mit <strong><u>&lt;p&gt;</u></strong> und fügen dann unseren Text ein, den wir schreiben wollen.</li></p>
+        <p><li>Wir beenden die Befehle wie gewohnt mit <strong><u>&lt;/div&gt;</u></strong> und direkt danach <strong><u>&lt;/p&gt;</u></strong>.</li></p>
+    </div>
+    <div class="box code">
+        <div class="button-container">
+            <button onclick="copyCode('Div unbearbeitet')">Kopieren</button>
+        </div>
+        <pre id="Div unbearbeitet">
+    &lt;div&gt;
+        &lt;p&gt;Das ist eine Website, die 
+        erklären soll wie man selber eine 
+        Website coden kann. Mithilfe der 
+        ganzen Befehle, ist es danach 
+        selber möglich, eine komplett 
+        eigene und individuelle Website 
+        zu coden!&lt;/p&gt;
+    &lt;/div&gt;
+        
+        </pre>
+    </div>
+    <div class="box image">
+      <a href="Div ohne Bearbeitung.png">  <img src="Div ohne Bearbeitung.png" alt="Div unbearbeitet"></a>
+    </div>
+    <div class="box text">
+        <p>Jetzt ist unser gewünschter Text zwar auf der Website, aber er ist noch ungeordnet, nicht auf eine Gewisse Zone der Seite beschränkt und auch nicht strunkturiert.</p>
+        <p>Dies ändern wir im CSS-Abschnitt "div".</p>
+        <p><li>Damit wir den Text unmranden können, müssen wir wieder das "Border-Element" nutzen. Schreiben wir nun <strong><u>"border: 2px solid black auf</u></strong>. </li></p>
+        <p><li>Wir geben der Box die durch den obrigen Befehl entsteht nun einen Abstand nach oben mit dem Befehl <strong><u>"margin-top: 100px"</u></strong>.</li></p>
+        <p><li>Nun fehlen nur noch die Abstande nach links und reckts. Mit <strong><u>"margin-left: 300px"</u></strong> und <strong><u>"margin-right: 300px"</u></strong>, können wir diese ausführen.</li></p>
+    </div>
+    <div class="box code">
+        <div class="button-container">
+            <button onclick="copyCode('Div bearbeitet')">Kopieren</button>
+        </div>
+        <pre id="Div bearbeitet">
+    &lt;style&gt;
+        div {
+            border: 2px solid black;
+            margin-top: 100px;
+            margin-right: 300px;
+            margin-left: 300px;
+            }
+    &lt;/style&gt;
+        </pre>
+    </div>
+    <div class="box image">
+        <a href="Div-Element-fertig.png"><img src="Div-Element-fertig.png" alt="Div fertig"></a>
+    </div>
+    <footer>
+    
+    </footer>
+    
+    <script>
+        function copyCode(elementId){
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Copied the text!');
+            }).catch(function(err) {
+                console.error('Error in copying text: ', err);
+            });
+        }
+    
+        function openNav(event) {
+                
+                const cursorX = event.clientX;
+            
+                
+                if (cursorX <= 200) {
+                    document.getElementById("mySidebar").style.width = "400px";
+                    document.getElementById("main").style.marginLeft = "400px";
+                    document.getElementById("myOverlay").style.width = "100%";
+                }
+            }
+            
+            function closeNav() {
+    
+                const cursorX = event.clientX;
+    
+                if (cursorX <= 200) {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+                document.getElementById("myOverlay").style.width = "0";
+                }
+                const sidebar = document.getElementById("mySidebar");
+            sidebar.style.width = "0";
+            }
+
+            function toggleCommands() {
+        const subCommands = document.getElementById("subCommands");
+        if (subCommands.style.display === "none") {
+            subCommands.style.display = "block";
+        } else {
+            subCommands.style.display = "none";
+        }
+    }
+    
+    
+    </script>
+    
+    </body>
+    </html>
+        

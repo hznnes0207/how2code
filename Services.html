@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <title>Mini-Quiz-how2codeyourwebsite</title>
+    <style>
+      Body {
+            background-color: lightgrey;
+            font-family: 'Comfortaa', sans-serif;
+        }
+        header {
+            font-size: 50px;
+            text-align: center;
+            font-family: 'Comfortaa', sans-serif;
+            color: black;
+            margin-bottom: 130px; 
+            margin-top: 130px; 
+            margin-left: 400px; 
+            margin-right: 400px; 
+            border: none;
+            border-radius: 10px;
+            background-color: white;
+            
+        }
+
+        .überschrift {
+            font-size: 40px;
+            color:darkgreen;
+            font-family: "Caveat", cursive;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: space-around; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            background-color: white;
+           
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        .link-container {
+        background-color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: inline-block; 
+        }
+
+        .link-container a {
+        text-decoration: none; 
+        color: black; 
+        }
+        .link-container:hover {
+            transform: scale(1.05);
+        }
+
+        
+        .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0); 
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        z-index: 1000;
+         }
+
+        .link-container {
+        background-color: transparent; 
+        padding: 10px 0; 
+        }
+
+        .link-container a {
+        display: block;
+        padding: 10px 20px; 
+        text-decoration: none;
+        color: black;
+        transition: background-color 0.3s ease;
+        border-radius: 10px;
+        }
+
+        .link-container a:hover {
+         background-color: white; 
+         border-radius: 10px;
+        }
+
+        .erklärung-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        
+        .push-content {
+            transition: margin-left 0.5s;
+            padding: 16px;
+        }
+
+        
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        
+        .closebtn:hover {
+            color: #ccc;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 999;
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        .erklärung-container:hover {
+            transform: scale(1.05);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+ 
+    </style>
+</head>
+<body>
+
+      <header>
+        <p>Mini-Quiz</p>
+        
+            <p class="überschrift">Anleitung zum Coden einer eigenen Website!</p>
+            
+              
+      </header>
+
+      <body onmousemove="openNav(event)" onmouseout="closeNav()"></body>>
+      <div id="mySidebar" class="sidebar">
+        <div class="link-container">
+            <a href="index.html">Home</a>
+            <a href="#" onclick="toggleCommands()"><p>Befehle</p> HTML/CSS</a>
+            <div id="subCommands" style="display: none;">
+                <a href="Grundlage.Befehl.html">Grundlage</a>
+                <a href="Text.Befehle.html">Text einfügen</a>
+                <a href="Bilder.Befehl.Html">Bilder einfügen</a>
+                <a href="DIV.Befehl.html">"DIV"-Befehl</a>
+                <a href="Link.Befehl.html">Link einfügen</a>
+            </div>
+            <a href="Services.html">Mini-Quiz</a>
+            <a href="Impressum.html">Impressum</a>
+        </div>
+    </div>
+    
+        
+      
+
+         <section>
+
+            <div class="container">
+                <h1>Quiz</h1>
+                <form id="quizForm">
+                    <div class="question">
+                        <p>1. Für was wird das &lt;p&gt;-Element verwendet??</p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="Schrift"> Schrift</label>
+                            <label><input type="radio" name="q1" value="Bilder"> Bilder</label>
+                            <label><input type="radio" name="q1" value="Farbe"> Farbe</label>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p>2. Was ist und macht &lt;div&gt;?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="Struktur und Gruppierungen"> Struktur und Gruppierungen </label>
+                            <label><input type="radio" name="q2" value="Bild einfügen"> Bild einfügen</label>
+                            <label><input type="radio" name="q2" value="Schriftgröße"> Schriftgröße</label>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p> Was macht der Befehl border: black?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="Schwarze Fläche"> Schwarze Fläche </label>
+                            <label><input type="radio" name="q3" value="Schwarzen Rahmen">Schwarzen Rahmen</label>
+                            <label><input type="radio" name="q3" value="Schwarzer Text"> Schwarzer Text</label>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p>4. Mit welchem Begriff kann man den Abstand eines Objektes nach links einstellen?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q4" value="margin:left"> margin:left</label>
+                            <label><input type="radio" name="q4" value="text-align:center"> text-aling: center</label>
+                            <label><input type="radio" name="q4" value="margin:auto"> margin:auto</label>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <p>5. Was bezweckt der Begriff &lt;a href="..."&gt;?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q5" value=" Struktur-Zone schaffen"> Struktur-Zone schaffen</label>
+                            <label><input type="radio" name="q5" value="Schrift"> Schrift</label>
+                            <label><input type="radio" name="q5" value="Einfügen eines Links"> Einfügen eines Link's</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+           
+
+         </section>
+
+     <footer>
+         
+
+     </footer>
+
+     <script>
+        function openNav(event) {
+            
+            const cursorX = event.clientX;
+        
+            
+            if (cursorX <= 200) {
+                document.getElementById("mySidebar").style.width = "400px";
+                document.getElementById("main").style.marginLeft = "400px";
+                document.getElementById("myOverlay").style.width = "100%";
+            }
+        }
+        
+        function closeNav() {
+
+            const cursorX = event.clientX;
+
+            if (cursorX <= 200) {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+            document.getElementById("myOverlay").style.width = "0";
+            }
+            const sidebar = document.getElementById("mySidebar");
+        sidebar.style.width = "0";
+        }
+
+        function toggleCommands() {
+        const subCommands = document.getElementById("subCommands");
+        if (subCommands.style.display === "none") {
+            subCommands.style.display = "block";
+        } else {
+            subCommands.style.display = "none";
+        }
+    }
+
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let score = 0;
+            const answers = {
+                q1: 'Schrift',
+                q2: 'Struktur und Gruppierungen',
+                q3: 'Schwarzen Rahmen',
+                q4: 'margin:left',
+                q5: 'Einfügen eines Links'
+            };
+            for (const question in answers) {
+                const userAnswer = document.querySelector('input[name="' + question + '"]:checked');
+                if (userAnswer && userAnswer.value === answers[question]) {
+                    score++;
+                }
+            }
+            alert('You scored ' + score + ' out of 5');
+        });
+
+
+
+
+     </script>
+
+</body>
+
+</html>
